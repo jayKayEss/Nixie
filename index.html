@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nixie!</title>
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro:200' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+
+            @font-face {
+                font-family: "Nixie Tubes";
+                src: url("./NixieTubes.woff");
+            }
+
+            .nixie {
+                font-family: Nixie Tubes;
+                font-size: 96px;
+                line-height: 128px;
+            }
+
+            .nixie .numeral {
+                position: relative;
+                display: inline-block;
+            }
+
+            .nixie .digit,
+            .nixie .background,
+            .nixie .foreground {
+                width: 78px;
+                height: 128px;
+                overflow: hidden;
+            }
+
+            .nixie .background {
+                /* background-color: black; */
+background: #000000; /* Old browsers */
+background: -moz-linear-gradient(left,  #000000 0%, #282828 40%, #282828 60%, #000000 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#000000), color-stop(40%,#282828), color-stop(60%,#282828), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  #000000 0%,#282828 40%,#282828 60%,#000000 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  #000000 0%,#282828 40%,#282828 60%,#000000 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  #000000 0%,#282828 40%,#282828 60%,#000000 100%); /* IE10+ */
+background: linear-gradient(to right,  #000000 0%,#282828 40%,#282828 60%,#000000 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 */
+                
+            }
+
+            .nixie .digit,
+            .nixie .foreground {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+
+            .nixie .digit {
+                text-align: center;
+                color: #333333;
+                opacity: .2;
+                background-color: transparent;
+                -webkit-transition:color 0.1s, opacity 0.1s, text-shadow 0.1s;
+            }
+
+            .nixie .digit.active {
+                color: #ffc900;
+                text-shadow: 0 0 .1em #FF2E00, 0 0 .2em #ff8f00, 0 0 .2em #ff8f00;
+                opacity: 1;
+            }
+
+            .nixie .foreground {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAYAAACXDi8zAAAAQklEQVQIW2NkYGCoB+ItQHwWiGHAmBHIMgZiHyRJMB8kAQLIkmBFMAl0ybPIEiBJkH2NIAZBHVjtwOkqnP7AJsEAAAW3FNW+4KtZAAAAAElFTkSuQmCC);
+            }
+
+        </style>
+        <script language="JavaScript" type="text/javascript">
+            $(document).ready(function($){
+                    var counter = 0;
+
+                    setInterval(function(){
+                        counter++;
+                        if (counter > 9) {
+                            counter = 0;
+                        }
+
+                        $(".nixie .digit.active").removeClass('active');
+                        $(".nixie .digit.d"+counter).addClass('active');
+                    }, 1000);
+
+            }(jQuery));
+        </script>
+    </head>
+    <body>
+        <div class="nixie">
+            <div class="numeral">
+                <div class="background">&nbsp;</div>
+                <div class="digit d3">3</div>
+                <div class="digit d8">8</div>
+                <div class="digit d9">9</div>
+                <div class="digit d4">4</div>
+                <div class="digit d0">0</div>
+                <div class="digit d5">5</div>
+                <div class="digit d7">7</div>
+                <div class="digit d2">2</div>
+                <div class="digit d6">6</div>
+                <div class="digit d1">1</div>
+                <div class="foreground">&nbsp;</div>
+            </div><div class="numeral">
+                <div class="background">&nbsp;</div>
+                <div class="digit d6">6</div>
+                <div class="digit d5">5</div>
+                <div class="digit d7">7</div>
+                <div class="digit d4">4</div>
+                <div class="digit d8">8</div>
+                <div class="digit d3">3</div>
+                <div class="digit d9">9</div>
+                <div class="digit d2">2</div>
+                <div class="digit d0">0</div>
+                <div class="digit d1">1</div>
+                <div class="foreground">&nbsp;</div>
+            </div><div class="numeral">
+                <div class="background">&nbsp;</div>
+                <div class="digit d8">8</div>
+                <div class="digit d6">6</div>
+                <div class="digit d4">4</div>
+                <div class="digit d2">2</div>
+                <div class="digit d0">0</div>
+                <div class="digit d9">9</div>
+                <div class="digit d7">7</div>
+                <div class="digit d5">5</div>
+                <div class="digit d3">3</div>
+                <div class="digit d1">1</div>
+                <div class="foreground">&nbsp;</div>
+            </div>
+        </div>
+    </body>
+</html>
+
